@@ -16,3 +16,10 @@ cmake ..
 make
 ./minecraft-cpp
 ```
+
+If you cloned without `--recurse-submodules`:
+```bash
+cd minecraft-cpp/extlibs/
+git submodule init
+git submodule update
+``` 

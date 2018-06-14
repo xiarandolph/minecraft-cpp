@@ -1,11 +1,27 @@
 cmake_minimum_required(VERSION 3.1)
+
+#Enable debug symbols by default
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Debug CACHE STRING "Choose build type (Debug or Release)" FORCE)
+endif()
+# command line: -D CMAKE_BUILD_TYPE=RELEASE
+
 project(minecraft-cpp)
 
-# Source files
-set(SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
-set(SOURCES "${SRC_DIR}/main.cpp")
+#SFML files
+add_subdirectory(extlibs/SFML)
+include_directories(extlibs/SFML/include)
 
-# Executable definition and properties
-add_executable(${PROJECT_NAME} ${SOURCES})
-target_include_directories(${PROJECT_NAME} PRIVATE "${SRC_DIR}")
-set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 14)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+include_directories("include")
+include_directories(${SFML_INCLUDE_DIR})
+
+set(FOLLOW_CPP ./src/main.cpp)
+#set(FOLLOW_HPP ./lib/test.h)
+
+#source_group("Header Files" FILES $(FOLLOW_HPP))
+source_group("Source Files" FILES $(FOLLOW_CPP))
+
+add_executable(minecraft-cpp ${FOLLOW_CPP})
+
+target_link_libraries(minecraft-cpp sfml-graphics sfml-window sfml-system)

@@ -1,4 +1,4 @@
-[submodule "lib/SFML"]
-	path = lib/SFML
+[submodule "extlibs/SFML"]
+	path = extlibs/SFML
 	url = https://github.com/SFML/SFML.git
   ignore = untracked

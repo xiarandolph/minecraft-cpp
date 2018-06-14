@@ -8,11 +8,20 @@ endif()
 
 project(minecraft-cpp)
 
+find_package(OpenGL REQUIRED)
+
 #SFML files
 add_subdirectory(extlibs/SFML)
-include_directories(extlibs/SFML/include)
+add_subdirectory(extlibs/glew-cmake)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+include_directories(
+  extlibs/SFML/include
+  extlibs/glew-cmake/include
+  extlibs/glew-camke/src
+  extlibs/glm
+  .
+)
+
 include_directories("include")
 include_directories(${SFML_INCLUDE_DIR})
 
@@ -24,4 +33,8 @@ source_group("Source Files" FILES $(FOLLOW_CPP))
 
 add_executable(minecraft-cpp ${FOLLOW_CPP})
 
-target_link_libraries(minecraft-cpp sfml-graphics sfml-window sfml-system)
+target_link_libraries(minecraft-cpp
+  sfml-graphics sfml-window sfml-system
+  ${OPENGL_LIBRARY}
+
+)

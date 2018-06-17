@@ -23,7 +23,6 @@ include_directories(
 )
 
 include_directories("include")
-include_directories(${SFML_INCLUDE_DIR})
 
 set(FOLLOW_CPP ./src/main.cpp)
 #set(FOLLOW_HPP ./lib/test.h)
@@ -35,6 +34,5 @@ add_executable(minecraft-cpp ${FOLLOW_CPP})
 
 target_link_libraries(minecraft-cpp
   sfml-graphics sfml-window sfml-system
-  ${OPENGL_LIBRARY}
-
+  libglew_static
 )

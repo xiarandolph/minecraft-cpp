@@ -24,10 +24,14 @@ include_directories(
 
 include_directories("include")
 
-set(FOLLOW_CPP ./src/main.cpp)
-#set(FOLLOW_HPP ./lib/test.h)
+set(FOLLOW_CPP
+  ./src/main.cpp
+  ./src/Display.cpp)
 
-#source_group("Header Files" FILES $(FOLLOW_HPP))
+set(FOLLOW_HPP
+  ./include/Display.h)
+
+source_group("Header Files" FILES $(FOLLOW_HPP))
 source_group("Source Files" FILES $(FOLLOW_CPP))
 
 add_executable(minecraft-cpp ${FOLLOW_CPP})

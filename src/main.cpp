@@ -1,16 +1,14 @@
 #include "Display.h"
+#include "Application.h"
+
 
 int main(int argc, char* argv[])
 {
   Display::init();
 
-  while (Display::isOpen())
-  {
-    Display::clear();
-    Display::update();
+  Application app;
 
-    Display::checkForClose();
-  }
-
+  app.runMainGameLoop();
+  
   return 0;
 }

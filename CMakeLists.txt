@@ -25,11 +25,17 @@ include_directories(
 include_directories("include")
 
 set(FOLLOW_CPP
+  ./src/Application.cpp
+  ./src/Display.cpp
+  ./src/GameState.cpp
   ./src/main.cpp
-  ./src/Display.cpp)
+  ./src/Playing.cpp)
 
 set(FOLLOW_HPP
-  ./include/Display.h)
+  ./include/Application.h
+  ./include/Display.h
+  ./include/GameState.h
+  ./include/Playing.h)
 
 source_group("Header Files" FILES $(FOLLOW_HPP))
 source_group("Source Files" FILES $(FOLLOW_CPP))

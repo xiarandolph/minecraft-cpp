@@ -6,6 +6,10 @@ Learning cpp and OpenGL while watching the following video series:
 ## Dependencies
 Using SFML, glew, and glm submodules
 
+On linux:
+cmake make g++ libx11-dev libxi-dev libgl1-mesa-dev libglu1-mesa-dev libxrandr-dev libxext-dev libxcursor-dev libxinerama-dev libxi-dev
+libfreetype6-dev libudev-dev libopenal-dev libvorbis-dev libflac-dev
+
 ## Instructions (Tested on Ubuntu 16.04)
 ```bash
 git clone --recurse-submodules https://github.com/xiarandolph/minecraft-cpp
